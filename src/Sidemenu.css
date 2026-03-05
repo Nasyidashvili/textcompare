@@ -1,0 +1,42 @@
+.logo img {
+    width: 42.65px;
+    height: 45px;
+}
+
+.sidemenu {
+    background-color: #132450;
+    width: 240px;
+    height: 100vh;
+    padding: 24px;
+}
+
+.logo {
+    display: flex;
+}
+
+.logo-name {
+    color: white;
+    font-size: 14px;
+    letter-spacing: 2px;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+nav ul {
+    list-style: none;
+    margin-top: 28px;
+}
+
+nav ul li {
+    color: white;
+    margin-bottom: 28px;
+    padding: 10px 12px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.text-compare {
+    background-color: white;
+    color: #132450
+}
