@@ -40,3 +40,44 @@ nav ul li {
     background-color: white;
     color: #132450
 }
+
+.burger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    z-index: 100;
+}
+
+.burger span {
+    display: block;
+    height: 3px;
+    background-color: #FFFFFF;
+    border-radius: 3px;
+}
+
+@media (max-width: 768px) {
+    .burger {
+        display: flex;
+    }
+    .sidemenu {
+        display: none;
+        position: fixed;
+        z-index: 99;
+        height: 100vh;
+    }
+    .sidemenu.open {
+        display: block;
+    }
+}
+
+@media (max-width: 480px) {
+    .burger {
+        display: flex;
+    }
+}

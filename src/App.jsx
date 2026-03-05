@@ -14,11 +14,25 @@ function App() {
       setMove(diff);
   }
 
+  function Swap() {
+    const temp = text1
+    setText1(text2)
+    setText2(temp)
+    setMove([])
+  }
+
+  const [open, setOpen] = useState(false)
+
   return (
     <>
     <div className='textapp'>
       <Sidemenu/>
       <main>
+        <div className='burger' onClick={() => setOpen(!open)}>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
         <div className='head-bar'>
           <div className='lang-bar'>
             <select name='language' className='lang'>
@@ -40,23 +54,33 @@ function App() {
           </button>
         </div>
         <div className='texteditor'>
-          <textarea name="compare" className='textcompare' placeholder='დაიწყე წერა...' onChange={e => setText1(e.target.value)}></textarea>
-          <div className='swap'><IoSwapHorizontal/></div>
-          <textarea name="compare" className='textcompare' placeholder='დაიწყე წერა...' onChange={e => setText2(e.target.value)}></textarea>
+          <div className='textcompare'>
+            {
+              move.length > 0 ? ( 
+                move.map((part, i) => part.added ? null : (
+                  <span key={i} className={part.removed ? "deleted" : "unchanged"}>{part.value}</span>
+                ))
+              ) : (
+                    <textarea value={text1} name="compare" placeholder='დაიწყე წერა...' onChange={e => setText1(e.target.value)}></textarea>
+              )
+            }
+          </div>
+          <div className='swap' onClick={Swap}><IoSwapHorizontal/></div>
+          <div className='textcompare'>
+            {
+              move.length > 0 ? (
+                move.map((part, i) => part.removed ? null : (
+                  <span key={i} className={part.added ? "added" : "unchanged"}>{part.value}</span>
+                ))
+              ) : (
+                <textarea value={text2} name="compare" placeholder='დაიწყე წერა...' onChange={e => setText2(e.target.value)}></textarea>
+              )
+            }
+          </div>
         </div>
         
         <div className='divbutton'>
             <button className='button-compare' onClick={Comparing}>შედარება</button>
-        </div>
-
-        <div className='switched'>
-          {move.map((number, index) => (
-            <span
-              key={index} className={
-                number.added ? "added " :
-                number.removed ? "deleted" : "unchanged"
-              }>{number.value}</span>
-          ))} 
         </div>
       </main>
     </div>

@@ -123,6 +123,20 @@ main {
   resize: none;
 }
 
+.textcompare textarea {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background-color: #F0F7FF;
+  border-radius: 8px;
+  font-size: 18px;
+  resize: none;
+}
+
+.textcompare textarea:focus {
+  outline: none;
+}
+
 .textcompare:focus-visible {
   outline: none;
   border: 1 px solid black;
@@ -148,10 +162,39 @@ main {
   cursor: pointer;
 }
 
-.switched {
-  margin-top: 20px;
-  font-size: 14px;
-  line-height: 1.7;
+
+
+@media (max-width: 1024px) {
+  .Sidemenu {
+    width: 180px;
+  }
 }
 
 
+@media (max-width: 768px) {
+  .sidemenu {
+    display: none;
+  }
+  main {
+    margin: 12px;
+  }
+  .texteditor {
+    height: auto;
+  }
+  .textcompare {
+    height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .texteditor {
+    flex-direction: column;
+  }
+  .swap {
+    transform: rotate(90deg);
+    align-self: center;
+  }
+  .head-bar {
+    flex-wrap: wrap;
+  }
+}

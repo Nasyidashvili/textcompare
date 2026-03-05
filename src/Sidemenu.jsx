@@ -1,9 +1,14 @@
 import './Sidemenu.css'
 import logo from './assets/logo.png'
+import {use, useState} from 'react'
+
+
 
 
 function Sidemenu() {
+    const [open, setOpen] = useState(false)
     return(
+        <>
         <aside className='sidemenu'>
         <div className='logo'>
             <img src={logo} alt='enagram-logo'></img>
@@ -19,6 +24,7 @@ function Sidemenu() {
             </ul>
         </nav>
     </aside>
+    </>
     );
 }
 
