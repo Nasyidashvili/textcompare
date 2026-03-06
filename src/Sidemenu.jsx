@@ -23,6 +23,15 @@ function Sidemenu() {
                 <li>PDF კონვერტაცია</li>
             </ul>
         </nav>
+        <div className='account'>
+            <div className='account-avatar'>ნ</div>
+            <p className='name'>ნიკოლოზ ნასყიდაშვილი</p>
+            <div className='dots'>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
     </aside>
     </>
     );

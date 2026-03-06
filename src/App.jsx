@@ -8,10 +8,18 @@ function App() {
   const [text1, setText1] = useState("");
   const [text2, setText2] = useState("");
   const [move, setMove] = useState([])
+  const [loadingScreen, setLoadingScreen] = useState(false)
 
   function Comparing() {
+    const diff = diffWords(text1, text2)
+    setMove(diff);
+    setLoadingScreen(true)
+    
+    setTimeout(() => {
       const diff = diffWords(text1, text2)
-      setMove(diff);
+      setMove(diff)
+      setLoadingScreen(false)
+    }, 1000)
   }
 
   function Swap() {
@@ -21,12 +29,18 @@ function App() {
     setMove([])
   }
 
+  function Newpage() {
+    setText1("")
+    setText2("")
+    setMove([])
+  }
+
   const [open, setOpen] = useState(false)
 
   return (
     <>
     <div className='textapp'>
-      <Sidemenu/>
+      <Sidemenu isOpen={open}/>
       <main>
         <div className='burger' onClick={() => setOpen(!open)}>
             <span></span>
@@ -44,7 +58,7 @@ function App() {
               ფორმატის შენარჩუნება
             </label>
           </div>
-          <button className='new-page'>
+          <button className={`new-page ${move.length > 0 ? 'active' : ''}`} onClick={Newpage}>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
               <circle cx="12" cy="12" r="9"/>
               <line x1="12" y1="7" x2="12" y2="17"/>
@@ -53,7 +67,14 @@ function App() {
             ახლის გახსნა
           </button>
         </div>
-        <div className='texteditor'>
+        {
+          loadingScreen ? (
+            <div className='loading'>
+              <div className='spin'></div>
+              <p>Converting... Thank you For your patience</p>
+            </div>
+          ) : (
+                    <div className='texteditor'>
           <div className='textcompare'>
             {
               move.length > 0 ? ( 
@@ -78,9 +99,10 @@ function App() {
             }
           </div>
         </div>
-        
+          )
+        }  
         <div className='divbutton'>
-            <button className='button-compare' onClick={Comparing}>შედარება</button>
+            <button className={`button-compare ${text1 && text2 ? 'active' : ''}`} onClick={Comparing}>შედარება</button>
         </div>
       </main>
     </div>

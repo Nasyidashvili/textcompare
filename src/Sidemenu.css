@@ -8,6 +8,8 @@
     width: 240px;
     height: 100vh;
     padding: 24px;
+    display: flex;
+    flex-direction: column;
 }
 
 .logo {
@@ -59,6 +61,59 @@ nav ul li {
     height: 3px;
     background-color: #FFFFFF;
     border-radius: 3px;
+}
+
+.account {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    margin-top: auto;
+    margin-left: -24px;
+    margin-right: -24px;
+    border-top: 1px solid #9EB9FF33;
+}
+
+.account-avatar {
+    width: 20px;
+    height: 20px;
+    border: 1px solid material-theme/white;
+    background-color: #9EC8FF;
+    border-radius: 50%;
+    color: #132450;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-style: bold;
+    font-size: 10px;
+    line-height: 24px;
+    letter-spacing: 0.1px;
+    flex-shrink: 0;
+}
+
+.name {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    font-family: Helvetica;
+    color: white;
+}
+
+.dots {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.dots span {
+    width: 5px;
+    height: 5px;
+    color: white;
+    background-color: white;
+    border: 1.5px solid white;
+    border-radius: 50%;
 }
 
 @media (max-width: 768px) {
