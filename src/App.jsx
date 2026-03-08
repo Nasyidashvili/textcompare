@@ -70,7 +70,9 @@ function App() {
         {
           loadingScreen ? (
             <div className='loading'>
-              <div className='spin'></div>
+              <div className='spin'>
+                <div className='spin-circle'></div>
+              </div>
               <p>Converting... Thank you For your patience</p>
             </div>
           ) : (
